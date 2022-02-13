@@ -1,0 +1,62 @@
+import timeit
+import random
+
+# Complete the code
+def p1_f_linear(x):
+
+    """DocTest module Expected Output Test - don't change or delete these lines
+        
+    >>> x = [565, 872, 711, 964, 340, 761, 2, 233, 562, 854]
+    >>> print("The minimum is: ",p1_f_linear(x))
+    The minimum is:  2
+    """
+    # ******ENTER YOUR FINAL CHECKED CODE AFTER THIS COMMENT BLOCK*******************
+    min_ele = x[0] 
+    for i in range(1,len(x)):
+        if x[i]<min_ele:
+            min_ele=x[i]
+            
+    return min_ele
+    
+ # Complete the code
+def p1_f_quadratic(x):
+
+    """DocTest module Expected Output Test - don't change or delete these lines
+        
+    >>> x = [565, 872, 711, 964, 340, 761, 2, 233, 562, 854]
+    >>> print("The minimum is: ", p1_f_quadratic(x))
+    The minimum is:  2
+    """
+
+    # Given in the problem
+    min = x[0]
+    l = len(x)
+    for i in range(l):
+        for j in range(i+1,l):
+            if x[i]<x[j] and x[i]<min:
+                min = x[i]
+    return min
+    
+    
+   # Complete the code
+def p1_timeit_quad(x):
+    """DocTest module Expected Output Test - don't change or delete these lines
+        
+    >>> x=[2, 3, 4, 5, 6, 4, 0, 1]
+    >>> lin  = p1_timeit_linear(x)
+    >>> quad = p1_timeit_quad(x)
+    >>> print(quad*1000_000>5)
+    True
+    >>> print(round(quad/lin,3)>1)
+    True
+    
+    """ 
+    
+    min = x[0]
+    l = len(x)
+    for i in range(l):
+        for j in range(i+1,l):
+            if x[i]<x[j] and x[i]<min:
+                min = x[i]
+                
+    return (timeit.timeit(number = 1))
